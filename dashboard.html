@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sema na Mimi | Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🖐️ Sema na Mimi</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fas fa-book"></i> My Learning</a></li>
+        <li><a href="#"><i class="fas fa-video"></i> Interpreter</a></li>
+        <li><a href="#"><i class="fas fa-comments"></i> Community</a></li>
+        <li><a href="#"><i class="fas fa-bell"></i> <span class="notification-badge">2</span></a></li>
+      </ul>
+    </nav>
+    <div class="user-menu">
+      <div class="user-avatar">
+        <img src="/api/placeholder/40/40" alt="User Profile">
+      </div>
+      <div class="user-dropdown">
+        <div class="user-info">
+          <p class="user-name">Amani Kariuki</p>
+          <p class="user-role">Learner <span class="level-badge">Level 3</span></p>
+        </div>
+        <ul class="dropdown-menu">
+          <li><a href="#"><i class="fas fa-user"></i> My Profile</a></li>
+          <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+          <li><a href="#"><i class="fas fa-medal"></i> Achievements</a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+          <li><a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="dashboard-container">
+    <!-- Welcome Banner -->
+    <section class="welcome-banner">
+      <div class="welcome-content">
+        <h1>Karibu, Amani! <span class="hand-wave">👋</span></h1>
+        <p>Pick up where you left off or explore something new today.</p>
+        <div class="progress-summary">
+          <div class="progress-item">
+            <div class="progress-circle" data-progress="65">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+                <path class="circle-bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path class="circle" stroke-dasharray="65, 100" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <text x="18" y="20.35" class="percentage">65%</text>
+              </svg>
+            </div>
+            <span>Level Progress</span>
+          </div>
+          <div class="progress-item">
+            <div class="streak-counter">
+              <span class="streak-number">7</span>
+              <i class="fas fa-fire"></i>
+            </div>
+            <span>Day Streak</span>
+          </div>
+          <div class="progress-item">
+            <div class="xp-counter">
+              <span class="xp-number">320</span>
+              <i class="fas fa-star"></i>
+            </div>
+            <span>XP Points</span>
+          </div>
+        </div>
+      </div>
+      <div class="sos-button pulse">
+        <i class="fas fa-exclamation-triangle"></i> Silent SOS
+      </div>
+    </section>
+
+    <!-- Continue Learning Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2><i class="fas fa-book-open"></i> Continue Learning</h2>
+        <a href="#" class="see-all">See All</a>
+      </div>
+      <div class="course-cards">
+        <div class="course-card active">
+          <div class="course-progress" style="--progress: 75%"></div>
+          <div class="course-icon"><i class="fas fa-comments"></i></div>
+          <div class="course-info">
+            <h3>Common Phrases</h3>
+            <p>Module 3: Questions & Answers</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%"></div>
+            </div>
+            <p class="progress-text">75% Complete</p>
+          </div>
+          <a href="#" class="btn btn-primary">Continue</a>
+        </div>
+        <div class="course-card">
+          <div class="course-progress" style="--progress: 40%"></div>
+          <div class="course-icon"><i class="fas fa-utensils"></i></div>
+          <div class="course-info">
+            <h3>Food & Dining</h3>
+            <p>Module 2: Ordering Food</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 40%"></div>
+            </div>
+            <p class="progress-text">40% Complete</p>
+          </div>
+          <a href="#" class="btn btn-primary">Continue</a>
+        </div>
+        <div class="course-card">
+          <div class="course-progress" style="--progress: 20%"></div>
+          <div class="course-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="course-info">
+            <h3>Time & Calendar</h3>
+            <p>Module 1: Basic Concepts</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 20%"></div>
+            </div>
+            <p class="progress-text">20% Complete</p>
+          </div>
+          <a href="#" class="btn btn-primary">Continue</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Challenge Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2><i class="fas fa-bolt"></i> Daily Challenge</h2>
+        <span class="daily-reset">Resets in: 8h 24m</span>
+      </div>
+      <div class="daily-challenge-card">
+        <div class="challenge-content">
+          <div class="challenge-header">
+            <h3>Master These Signs</h3>
+            <div class="xp-badge">+50 XP</div>
+          </div>
+          <p>Practice and recognize these 5 signs to complete today's challenge!</p>
+          <div class="sign-gallery">
+            <div class="sign-item completed">
+              <div class="sign-video">
+                <img src="/api/placeholder/120/120" alt="Sign for Hello">
+                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+              </div>
+              <p>Hello</p>
+              <span class="status-icon"><i class="fas fa-check-circle"></i></span>
+            </div>
+            <div class="sign-item completed">
+              <div class="sign-video">
+                <img src="/api/placeholder/120/120" alt="Sign for Thank You">
+                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+              </div>
+              <p>Thank You</p>
+              <span class="status-icon"><i class="fas fa-check-circle"></i></span>
+            </div>
+            <div class="sign-item active">
+              <div class="sign-video">
+                <img src="/api/placeholder/120/120" alt="Sign for Friend">
+                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+              </div>
+              <p>Friend</p>
+              <span class="status-icon"><i class="fas fa-circle"></i></span>
+            </div>
+            <div class="sign-item">
+              <div class="sign-video">
+                <img src="/api/placeholder/120/120" alt="Sign for Help">
+                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+              </div>
+              <p>Help</p>
+              <span class="status-icon"><i class="fas fa-circle"></i></span>
+            </div>
+            <div class="sign-item">
+              <div class="sign-video">
+                <img src="/api/placeholder/120/120" alt="Sign for Sorry">
+                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+              </div>
+              <p>Sorry</p>
+              <span class="status-icon"><i class="fas fa-circle"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="challenge-action">
+          <a href="#" class="btn btn-accent">Practice Now</a>
+          <p>2/5 Completed</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Dashboard Grid -->
+    <div class="dashboard-grid">
+      <!-- Explore Learning Paths -->
+      <section class="content-section grid-span-2">
+        <div class="section-header">
+          <h2><i class="fas fa-map-signs"></i> Learning Paths</h2>
+          <a href="#" class="see-all">See All</a>
+        </div>
+        <div class="learning-paths">
+          <div class="path-card beginner">
+            <div class="path-icon"><i class="fas fa-seedling"></i></div>
+            <div class="path-info">
+              <h3>Beginner's Path</h3>
+              <p>Alphabet, Numbers, and Basic Greetings</p>
+              <div class="path-modules">
+                <span class="module-count">8 Modules</span>
+                <span class="module-completion">3 Completed</span>
+              </div>
+            </div>
+            <a href="#" class="path-button"><i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="path-card intermediate">
+            <div class="path-icon"><i class="fas fa-tree"></i></div>
+            <div class="path-info">
+              <h3>Everyday Conversations</h3>
+              <p>Common Phrases, Questions, and Daily Activities</p>
+              <div class="path-modules">
+                <span class="module-count">12 Modules</span>
+                <span class="module-completion">2 Completed</span>
+              </div>
+            </div>
+            <a href="#" class="path-button"><i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="path-card advanced locked">
+            <div class="path-icon"><i class="fas fa-mountain"></i></div>
+            <div class="path-info">
+              <h3>Advanced Conversations</h3>
+              <p>Complex Topics and Fluent Expressions</p>
+              <div class="path-modules">
+                <span class="module-lock"><i class="fas fa-lock"></i> Complete Intermediate First</span>
+              </div>
+            </div>
+          </div>
+          <div class="path-card specialized">
+            <div class="path-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="path-info">
+              <h3>Professional KSL</h3>
+              <p>Workplace, Education, and Healthcare</p>
+              <div class="path-modules">
+                <span class="module-count">15 Modules</span>
+                <span class="module-completion">0 Completed</span>
+              </div>
+            </div>
+            <a href="#" class="path-button"><i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leaderboard Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2><i class="fas fa-trophy"></i> Leaderboard</h2>
+          <a href="#" class="see-all">See All</a>
+        </div>
+        <div class="leaderboard">
+          <div class="leaderboard-header">
+            <span>Weekly Champions</span>
+            <span>XP</span>
+          </div>
+          <div class="leaderboard-list">
+            <div class="leaderboard-item">
+              <div class="rank">1</div>
+              <div class="user">
+                <img src="/api/placeholder/30/30" alt="User">
+                <span>Njeri M.</span>
+              </div>
+              <div class="score">1,250</div>
+            </div>
+            <div class="leaderboard-item">
+              <div class="rank">2</div>
+              <div class="user">
+                <img src="/api/placeholder/30/30" alt="User">
+                <span>Otieno W.</span>
+              </div>
+              <div class="score">980</div>
+            </div>
+            <div class="leaderboard-item active">
+              <div class="rank">3</div>
+              <div class="user">
+                <img src="/api/placeholder/30/30" alt="User">
+                <span>Amani K. (You)</span>
+              </div>
+              <div class="score">820</div>
+            </div>
+            <div class="leaderboard-item">
+              <div class="rank">4</div>
+              <div class="user">
+                <img src="/api/placeholder/30/30" alt="User">
+                <span>Fatuma A.</span>
+              </div>
+              <div class="score">650</div>
+            </div>
+            <div class="leaderboard-item">
+              <div class="rank">5</div>
+              <div class="user">
+                <img src="/api/placeholder/30/30" alt="User">
+                <span>Wanjiku K.</span>
+              </div>
+              <div class="score">580</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practice with AI Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2><i class="fas fa-robot"></i> Practice with AI</h2>
+        </div>
+        <div class="ai-practice-card">
+          <div class="ai-practice-content">
+            <h3>Real-time Sign Recognition</h3>
+            <p>Practice your signs and get instant feedback using your camera.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check"></i> Instant feedback</li>
+              <li><i class="fas fa-check"></i> Works offline</li>
+              <li><i class="fas fa-check"></i> No recordings stored</li>
+            </ul>
+            <div class="ai-actions">
+              <a href="#" class="btn btn-primary">Start Practice</a>
+              <span class="camera-permission">
+                <i class="fas fa-camera"></i> Requires camera access
+              </span>
+            </div>
+          </div>
+          <div class="ai-practice-image">
+            <img src="/api/placeholder/200/250" alt="AI Practice Illustration">
+          </div>
+        </div>
+      </section>
+
+      <!-- Community Activity Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2><i class="fas fa-users"></i> Community Activity</h2>
+          <a href="#" class="see-all">See All</a>
+        </div>
+        <div class="community-feed">
+          <div class="community-event">
+            <div class="event-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="event-info">
+              <h3>Weekend Practice Session</h3>
+              <p>Join our virtual meetup this Saturday at 3 PM for practice and fun!</p>
+              <div class="event-meta">
+                <span><i class="fas fa-clock"></i> Sat, 3:00 PM</span>
+                <span><i class="fas fa-users"></i> 24 Going</span>
+              </div>
+              <div class="event-actions">
+                <button class="btn btn-small btn-outline">Interested</button>
+                <button class="btn btn-small btn-primary">Going</button>
+              </div>
+            </div>
+          </div>
+          <div class="community-post">
+            <div class="post-author">
+              <img src="/api/placeholder/40/40" alt="User">
+              <div>
+                <span class="author-name">Wambui N.</span>
+                <span class="post-time">2 hours ago</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <p>Just completed the "Family Members" module! The interactive quizzes were super helpful. Has anyone started the "Colors and Descriptions" module yet?</p>
+            </div>
+            <div class="post-actions">
+              <button><i class="fas fa-heart"></i> 12</button>
+              <button><i class="fas fa-comment"></i> 5</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Dictionary -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2><i class="fas fa-book"></i> KSL Dictionary</h2>
+        </div>
+        <div class="dictionary-widget">
+          <div class="search-container">
+            <input type="text" placeholder="Search for a sign..." class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <h3>Recently Viewed Signs</h3>
+          <div class="recent-signs">
+            <div class="sign-chip">
+              <span>Hello</span>
+              <img src="/api/placeholder/30/30" alt="Hello sign">
+            </div>
+            <div class="sign-chip">
+              <span>Family</span>
+              <img src="/api/placeholder/30/30" alt="Family sign">
+            </div>
+            <div class="sign-chip">
+              <span>Water</span>
+              <img src="/api/placeholder/30/30" alt="Water sign">
+            </div>
+            <div class="sign-chip">
+              <span>School</span>
+              <img src="/api/placeholder/30/30" alt="School sign">
+            </div>
+          </div>
+          <div class="dictionary-categories">
+            <div class="category-item">
+              <i class="fas fa-utensils"></i>
+              <span>Food</span>
+            </div>
+            <div class="category-item">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </div>
+            <div class="category-item">
+              <i class="fas fa-heart"></i>
+              <span>Feelings</span>
+            </div>
+            <div class="category-item">
+              <i class="fas fa-tshirt"></i>
+              <span>Clothing</span>
+            </div>
+            <div class="category-item">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Education</span>
+            </div>
+            <div class="category-item">
+              <i class="fas fa-bus"></i>
+              <span>Transport</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Get Help Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2><i class="fas fa-hands-helping"></i> Get Help</h2>
+        </div>
+        <div class="help-options">
+          <div class="help-card">
+            <div class="help-icon"><i class="fas fa-video"></i></div>
+            <h3>Live Interpreter</h3>
+            <p>Connect with a KSL interpreter for real-time assistance</p>
+            <div class="availability online">
+              <span class="status-dot"></span>
+              <span>Available Now</span>
+            </div>
+            <a href="#" class="btn btn-outline">Connect</a>
+          </div>
+          <div class="help-card">
+            <div class="help-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h3>Find a Tutor</h3>
+            <p>Book a one-on-one session with a KSL teacher</p>
+            <span class="tutor-count">12 Tutors Available</span>
+            <a href="#" class="btn btn-outline">Browse Tutors</a>
+          </div>
+          <div class="help-card">
+            <div class="help-icon"><i class="fas fa-question-circle"></i></div>
+            <h3>Support Center</h3>
+            <p>Find answers or contact our support team</p>
+            <a href="#" class="btn btn-outline">Get Support</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Support</a>
+      </div>
+      <p class="copyright">&copy; 2025 Sema na Mimi | Made with 💜 for the deaf community in Kenya</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sample JavaScript for user dropdown toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const userAvatar = document.querySelector('.user-avatar');
+      const userDropdown = document.querySelector('.user-dropdown');
+      
+      userAvatar.addEventListener('click', function() {
+        userDropdown.classList.toggle('active');
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.user-menu')) {
+          userDropdown.classList.remove('active');
+        }
+      });
+      
+      // Sample code to simulate sign videos playing
+      const playIcons = document.querySelectorAll('.play-icon');
+      playIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+          // This would normally trigger video playback
+          this.innerHTML = '<i class="fas fa-pause-circle"></i>';
+          setTimeout(() => {
+            this.innerHTML = '<i class="fas fa-play-circle"></i>';
+          }, 3000);
+        });
+      });
+      
+      // Show cookie consent banner
+      const cookieBanner = document.getElementById('cookie-consent-banner');
+      if (cookieBanner) {
+        setTimeout(() => {
+          cookieBanner.style.display = 'flex';
+        }, 1000);
+      }
+    });
+  </script>
+  <script src="dashboard.js"></script>
+</body>
+</body>
+</html>

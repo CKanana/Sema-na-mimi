@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Sema na Mimi</title>
+  <!-- Link to Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+  <!-- Optional: Font Awesome for better icons (if you prefer) -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+
+  <!-- Embedded CSS -->
+  <style>
+    /* Basic Reset & Font */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Comic Neue', sans-serif;
+      /* --- Glassmorphism Background --- */
+      /* Replace with your actual purple wallpaper */
+      background: linear-gradient(135deg, #ded7e1 0%, #764ba2 100%);
+   
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: #333; /* Default text color */
+    }
+
+    /* Signup Container - Glassmorphism */
+    .signup-container {
+      /* --- Glassmorphism Styles --- */
+      background: rgba(255, 255, 255, 0.15); /* Semi-transparent white */
+      backdrop-filter: blur(10px); /* Blur effect */
+      -webkit-backdrop-filter: blur(10px); /* Safari support */
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Adjusted shadow for glass */
+      /* --- End Glassmorphism --- */
+
+      padding: 30px 40px;
+      border-radius: 15px; /* Slightly more rounded for glass effect */
+      max-width: 480px; /* Slightly wider */
+      width: 100%;
+      text-align: center;
+      color: #fff; /* Change text color to white for better contrast on glass */
+    }
+
+    /* Logo/Header */
+    .signup-header {
+      margin-bottom: 25px;
+    }
+
+    .signup-header .logo {
+      font-size: 2.5em;
+      font-weight: bold;
+      /* Keep a distinct color or make it white? Let's try white */
+      color: #fff;
+      /* color: #f0f0f0; /* Slightly off-white */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Add subtle shadow */
+      margin-bottom: 10px;
+    }
+
+    .signup-header h2 {
+      font-size: 1.8em;
+      color: #fff; /* White text */
+      margin-bottom: 5px;
+    }
+
+    .signup-header p {
+      color: #eee; /* Lighter grey/white text */
+      font-size: 1em;
+    }
+
+    /* Form Styling */
+    .signup-form .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+      position: relative; /* Needed for absolute positioning of toggle icon */
+    }
+
+    .signup-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #eee; /* Lighter label color */
+      font-size: 0.95em;
+    }
+
+    .signup-form input[type="text"],
+    .signup-form input[type="email"],
+    .signup-form input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      /* Adjust padding-right for password fields to make space for the icon */
+      padding-right: 45px;
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border */
+      border-radius: 5px;
+      font-size: 1em;
+      font-family: inherit;
+      background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent input background */
+      color: #fff; /* White input text */
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    /* Remove right padding for non-password fields */
+     .signup-form input[type="text"],
+     .signup-form input[type="email"] {
+        padding-right: 15px;
+     }
+
+
+    .signup-form input::placeholder { /* Style placeholders */
+        color: rgba(255, 255, 255, 0.7);
+        opacity: 1; /* Firefox */
+    }
+
+    .signup-form input:focus {
+      border-color: rgba(255, 255, 255, 0.7); /* Highlight border on focus */
+      background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque on focus */
+      outline: none;
+    }
+
+    /* Password Visibility Toggle Icon */
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 70%; /* Adjust vertical position relative to label+input */
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #eee; /* Icon color */
+      font-size: 1.2em; /* Adjust icon size */
+      user-select: none; /* Prevent text selection on icon */
+    }
+    /* If using Font Awesome: */
+    /* .toggle-password i { font-size: 1.1em; } */
+
+
+    /* Terms and Conditions */
+    .terms-group {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #eee; /* Lighter text */
+    }
+
+    .terms-group input[type="checkbox"] {
+      margin-right: 10px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #7e0a98; /* Style checkbox color */
+    }
+
+    .terms-group label {
+      margin-bottom: 0;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .terms-group a {
+      color: #7e0a98; /* Lighter blue for links */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .terms-group a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* Submit Button */
+    .signup-form button[type="submit"] {
+      width: 100%;
+      padding: 12px 20px;
+      background-color: #7e0a98; /* Green color */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1em;
+      font-weight: bold;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 10px; /* Add some space above button */
+    }
+
+    .signup-form button[type="submit"]:hover {
+      background-color: #7e0a98;
+      transform: translateY(-2px);
+    }
+    .signup-form button[type="submit"]:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+
+
+    /* Login Link */
+    .login-link {
+      margin-top: 25px;
+      font-size: 0.95em;
+      color: #eee; /* Lighter text */
+    }
+
+    .login-link a {
+      color: #7e0a98; /* Lighter blue link */
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Message Area for JS Feedback */
+    #message-area {
+      margin-top: 15px;
+      margin-bottom: 15px; /* Add margin below */
+      padding: 12px 15px; /* Slightly more padding */
+      border-radius: 5px;
+      font-size: 0.95em; /* Slightly larger font */
+      display: none;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #message-area.success {
+      background-color: rgba(121, 13, 114, 0.9); /* More opaque success */
+      color: #7e0a98;
+      border: 1px solid rgba(104, 2, 133, 0.9);
+      display: block;
+    }
+
+    #message-area.error {
+      background-color: rgba(248, 215, 218, 0.9); /* More opaque error */
+      color: #721c24;
+      border: 1px solid rgba(245, 198, 203, 0.9);
+      display: block;
+    }
+
+    /* Input error styling */
+    input.error-input {
+        border-color: #dc3545 !important; /* Red border for errors */
+        background-color: rgba(220, 53, 69, 0.1); /* Subtle red background */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 500px) {
+      .signup-container {
+        padding: 20px;
+        margin: 10px; /* Add margin on small screens */
+        max-width: 95%;
+      }
+      .signup-header .logo {
+        font-size: 2em;
+      }
+      .signup-header h2 {
+        font-size: 1.5em;
+      }
+      .toggle-password {
+        right: 10px; /* Adjust icon position slightly */
+        font-size: 1.1em;
+      }
+       .signup-form input[type="password"] {
+            padding-right: 40px; /* Ensure space on mobile */
+       }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <div class="signup-header">
+      <div class="logo">🖐️ Sema na Mimi</div>
+      <h2>Create Your Account</h2>
+      <p>Join our community and start learning KSL!</p>
+    </div>
+
+    <form id="signup-form" class="signup-form" novalidate>
+      <!-- Message Area -->
+      <div id="message-area"></div>
+
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="e.g., Jina Kamili" required>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Choose a unique username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      </div>
+
+      <!-- Password Field with Toggle -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+        <span class="toggle-password" id="togglePassword">👁️</span>
+        <!-- Or use Font Awesome: <span class="toggle-password" id="togglePassword"><i class="fas fa-eye"></i></span> -->
+      </div>
+
+      <!-- Confirm Password Field with Toggle -->
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
+        <span class="toggle-password" id="toggleConfirmPassword">👁️</span>
+         <!-- Or use Font Awesome: <span class="toggle-password" id="toggleConfirmPassword"><i class="fas fa-eye"></i></span> -->
+      </div>
+
+      <div class="form-group terms-group">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="/terms" target="_blank">Terms</a> & <a href="/privacy" target="_blank">Privacy Policy</a>.</label>
+      </div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="login-link">
+      Already have an account? <a href="login.html">Login here</a>
+    </div>
+  </div>
+
+  <!-- Embedded JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const signupForm = document.getElementById('signup-form');
+      const fullnameInput = document.getElementById('fullname');
+      const usernameInput = document.getElementById('username');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmPasswordInput = document.getElementById('confirm-password');
+      const termsCheckbox = document.getElementById('terms');
+      const messageArea = document.getElementById('message-area');
+
+      // --- Password Visibility Toggles ---
+      const togglePassword = document.getElementById('togglePassword');
+      const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+
+      // Icons (using emojis here, adjust if using Font Awesome classes)
+      const eyeIcon = '👁️';
+      const eyeSlashIcon = '👁️‍🗨️'; // Or another distinct icon like '🙈'
+
+      function setupPasswordToggle(toggleElement, inputElement) {
+          toggleElement.addEventListener('click', () => {
+              // Toggle the type
+              const type = inputElement.getAttribute('type') === 'password' ? 'text' : 'password';
+              inputElement.setAttribute('type', type);
+
+              // Toggle the icon
+              toggleElement.textContent = type === 'password' ? eyeIcon : eyeSlashIcon;
+              // If using Font Awesome:
+              // toggleElement.querySelector('i').classList.toggle('fa-eye');
+              // toggleElement.querySelector('i').classList.toggle('fa-eye-slash');
+          });
+      }
+
+      setupPasswordToggle(togglePassword, passwordInput);
+      setupPasswordToggle(toggleConfirmPassword, confirmPasswordInput);
+      // --- End Password Visibility Toggles ---
+
+
+      // Helper function to show messages
+      const showMessage = (message, type) => {
+        messageArea.textContent = message;
+        messageArea.className = type; // 'success' or 'error'
+        messageArea.style.display = 'block'; // Make sure it's visible
+      };
+
+      // Helper function to add/remove error class from inputs
+      const setErrorInput = (inputElement, isError) => {
+          if (isError) {
+              inputElement.classList.add('error-input');
+          } else {
+              inputElement.classList.remove('error-input');
+          }
+      }
+
+      // Simple email validation regex
+      const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+      };
+
+      signupForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        // Clear previous messages and input errors
+        messageArea.textContent = '';
+        messageArea.className = '';
+        messageArea.style.display = 'none'; // Hide message area initially
+        setErrorInput(fullnameInput, false);
+        setErrorInput(usernameInput, false);
+        setErrorInput(emailInput, false);
+        setErrorInput(passwordInput, false);
+        setErrorInput(confirmPasswordInput, false);
+
+        // Get form values
+        const fullname = fullnameInput.value.trim();
+        const username = usernameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value; // Don't trim passwords
+        const confirmPassword = confirmPasswordInput.value;
+        const termsAgreed = termsCheckbox.checked;
+
+        // --- Validation ---
+        let errors = [];
+
+        if (!fullname) {
+          errors.push('Full Name is required.');
+          setErrorInput(fullnameInput, true);
+        }
+        if (!username) {
+          errors.push('Username is required.');
+          setErrorInput(usernameInput, true);
+        }
+        // Basic username validation (e.g., no spaces)
+        else if (/\s/.test(username)) {
+            errors.push('Username cannot contain spaces.');
+            setErrorInput(usernameInput, true);
+        }
+        if (!email) {
+          errors.push('Email is required.');
+          setErrorInput(emailInput, true);
+        } else if (!validateEmail(email)) {
+          errors.push('Please enter a valid email address.');
+          setErrorInput(emailInput, true);
+        }
+        if (!password) {
+          errors.push('Password is required.');
+          setErrorInput(passwordInput, true);
+        } else if (password.length < 8) {
+            errors.push('Password must be at least 8 characters long.');
+            setErrorInput(passwordInput, true);
+        }
+        if (!confirmPassword) {
+          errors.push('Please confirm your password.');
+          setErrorInput(confirmPasswordInput, true);
+        } else if (password && password !== confirmPassword) {
+          errors.push('Passwords do not match.');
+          setErrorInput(passwordInput, true);
+          setErrorInput(confirmPasswordInput, true);
+        }
+        if (!termsAgreed) {
+          errors.push('You must agree to the Terms and Privacy Policy.');
+          // Optionally add error style to the checkbox label or container
+        }
+
+        // --- Display results ---
+        if (errors.length > 0) {
+          // Show the first error message
+          showMessage(errors[0], 'error');
+          // Focus the first invalid input
+          const firstErrorInput = signupForm.querySelector('.error-input');
+          if (firstErrorInput) {
+              firstErrorInput.focus();
+          }
+        } else {
+          // --- SUCCESS ---
+          console.log('Signup Data:', { fullname, username, email, password }); // Log data for simulation
+          showMessage('Signup successful! Welcome to Sema na Mimi.', 'success');
+
+          // Disable button and show loading state
+          const submitButton = signupForm.querySelector('button[type="submit"]');
+          submitButton.disabled = true;
+          submitButton.textContent = 'Signing Up...';
+
+          // Simulate network request
+          setTimeout(() => {
+             // Re-enable button if needed, or redirect
+             // submitButton.disabled = false;
+             // submitButton.textContent = 'Sign Up';
+             // signupForm.reset(); // Clear form
+
+             // Example Redirect:
+             // window.location.href = 'dashboard.html'; // Redirect to a dashboard page
+             console.log("Simulated sign up complete.");
+
+          }, 2000); // Simulate 2 seconds delay
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

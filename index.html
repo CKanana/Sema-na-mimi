@@ -17,8 +17,8 @@
         <li><a href="#">Learn KSL</a></li>
         <li><a href="#">Interpreter</a></li>
         <li><a href="#">Volunteer</a></li>
-        <li><a href="#">Login</a></li>
-        <a href="#" class="floating-btn">Sign Up</a>
+        <li><a href="login.html">Login</a></li>
+        <a href="signup.html" class="floating-btn">Sign Up</a>
       </ul>
     </nav>
   </header>
@@ -135,9 +135,8 @@
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer class="footer">
+   <!-- Footer -->
+   <footer class="footer">
     <div class="footer-content">
       <div class="footer-column">
         <h3>Sema na Mimi</h3>
@@ -183,28 +182,20 @@
     </div>
   </footer>
 
-  <!-- Floating Sign Up Button -->
-  <a href="#" class="floating-btn" aria-label="Sign Up">
-    <i class="fas fa-user-plus"></i>
-    <span class="floating-btn-text">Create Account</span>
-  </a>
-
-  <!-- Back to Top Button -->
-  <a href="#top" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
-  <!-- Cookie Consent Banner -->
-  <div class="cookie-banner">
+  <!-- *** START: Keep only this Cookie Consent Banner *** -->
+  <div id="cookie-consent-banner" class="cookie-banner" style="display: none;"> <!-- Initially hidden -->
     <div class="cookie-text">
-      <p>We use cookies to improve your experience and provide helpful features. By continuing to use our site, you consent to our cookie policy.</p>
+      <p>We use cookies to enhance your experience, analyze site traffic, and potentially personalize content. By clicking "Accept All", you agree to our use of cookies. <a href="/privacy-policy.html" target="_blank" style="color: #7e0a98; text-decoration: underline;">Learn more</a>.</p> <!-- Link to your privacy/cookie policy -->
     </div>
     <div class="cookie-buttons">
-      <button class="btn btn-outline" id="cookie-settings">Settings</button>
+      <!-- Optional: Add a settings/reject button if needed -->
+      <!-- <button class="btn btn-outline" id="cookie-reject">Reject</button> -->
       <button class="btn btn-primary" id="cookie-accept">Accept All</button>
     </div>
   </div>
+  <!-- *** END: Keep only this Cookie Consent Banner *** -->
 
- <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
