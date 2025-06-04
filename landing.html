@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sema na Mimi - Learn Kenyan Sign Language</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="landing.css" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="hand-icon">🖐️</span>
+            Sema na Mimi
+        </div>
+        <div class="nav-right">
+            <div class="language-toggle">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="sw">SW</button>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Learn Kenyan Sign Language</h1>
+                <p class="hero-subtitle">Breaking communication barriers for deaf children and their families through fun, interactive learning and community support.</p>
+                <p class="hero-description">
+                    Join thousands of Kenyans learning KSL through interactive lessons, AI-powered practice, 
+                    and a supportive community. Make communication accessible for everyone.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-cta btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Start Learning Free
+                    </a>
+                    <a href="#demo" class="btn btn-outline btn-large">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>10,000+</strong> Active Learners
+                    </div>
+                    <div class="stat-item">
+                        <strong>500+</strong> Signs Taught
+                    </div>
+                    <div class="stat-item">
+                        <strong>98%</strong> Success Rate
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="ksl-greeting">
+                    <div class="greeting-hands">🤟👋</div>
+                    <div class="greeting-text">Habari!</div>
+                    <div class="greeting-subtitle">Hello in Kenyan Sign Language</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section class="demo-section" id="demo">
+        <div class="demo-container scroll-reveal">
+            <h2 class="demo-title">See Sema na Mimi in Action</h2>
+            <p class="demo-subtitle">Watch how our platform makes learning KSL engaging and effective</p>
+            <div class="video-container">
+                <div class="video-placeholder" onclick="playDemo()">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h3>Interactive Learning Demo</h3>
+                    <p>30 seconds • See our AI-powered sign recognition in action</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <h2 class="benefits-title scroll-reveal">Why Choose Sema na Mimi?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card scroll-reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="benefit-title">Culturally Authentic</h3>
+                    <p class="benefit-description">
+                        Learn genuine Kenyan Sign Language from native signers and certified instructors 
+                        who understand our unique cultural context.
+                    </p>
+                </div>
+                <div class="benefit-card scroll-reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="benefit-title">AI-Powered Practice</h3>
+                    <p class="benefit-description">
+                        Our advanced AI recognizes your signs in real-time, providing instant feedback 
+                        to help you improve faster than traditional methods.
+                    </p>
+                </div>
+                <div class="benefit-card scroll-reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="benefit-title">Community Support</h3>
+                    <p class="benefit-description">
+                        Join a vibrant community of learners and deaf advocates working together 
+                        to make Kenya more inclusive and accessible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <h2 class="features-title scroll-reveal">Everything You Need to Master KSL</h2>
+            <div class="features-grid">
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Structured Learning Paths</h3>
+                        <p>From beginner to advanced, follow carefully designed courses that build your skills progressively.</p>
+                    </div>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Daily Challenges</h3>
+                        <p>Stay motivated with fun daily challenges that reinforce learning and build consistency.</p>
+                    </div>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Interactive Dictionary</h3>
+                        <p>Access hundreds of signs with video demonstrations and practice exercises.</p>
+                    </div>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your learning journey with detailed analytics and achievement badges.</p>
+                    </div>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Live Tutoring</h3>
+                        <p>Connect with certified KSL instructors for personalized guidance and practice sessions.</p>
+                    </div>
+                </div>
+                <div class="feature-item scroll-reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Learn Anywhere</h3>
+                        <p>Practice on your phone, tablet, or computer. Your progress syncs across all devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- About -->
+  <section class="about" id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="about-content">
+      <p>At Sema na Mimi (Talk to Me), we believe that every child deserves to be heard and understood. Our mission is to break down communication barriers for deaf children across Kenya by making sign language learning fun, accessible, and community-driven.</p>
+      <p>Founded in 2023 by a team of educators, technologists, and deaf advocates, our platform combines playful learning experiences with practical tools that make a real difference in children's daily lives.</p>
+      <a href="#" class="btn btn-primary">Learn Our Story</a>
+    </div>
+  </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container scroll-reveal">
+            <h2 class="cta-title">Ready to Start Your KSL Journey?</h2>
+            <p class="cta-subtitle">
+                Join thousands of learners making Kenya more inclusive, one sign at a time.
+            </p>
+            <div class="cta-buttons">
+                <a href="signup.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-user-plus"></i>
+                    Create Free Account
+                </a>
+                <a href="#" class="btn btn-outline btn-large">
+                    <i class="fas fa-info-circle"></i>
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+   <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Sema na Mimi</h3>
+        <p>Breaking communication barriers for deaf children and their families across Kenya.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#learn">Learn KSL</a></li>
+          <li><a href="#interpreter">Get an Interpreter</a></li>
+          <li><a href="#volunteer">Volunteer</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul class="footer-links">
+          <li><a href="#">KSL Dictionary</a></li>
+          <li><a href="#">Deaf Schools Directory</a></li>
+          <li><a href="#">Support Services</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Subscribe</h3>
+        <p>Get updates on our latest features and events.</p>
+        <form>
+          <input type="email" placeholder="Your email" style="padding: 10px; width: 100%; margin: 10px 0; border-radius: 4px; border: none;">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Sema na Mimi | Made with 💜 for the deaf community in Kenya</p>
+    </div>
+  </footer>
+
+<!-- *** START: Keep only this Cookie Consent Banner *** -->
+  <div id="cookie-consent-banner" class="cookie-banner" style="display: none;"> <!-- Initially hidden -->
+    <div class="cookie-text">
+      <p>We use cookies to enhance your experience, analyze site traffic, and potentially personalize content. By clicking "Accept All", you agree to our use of cookies. <a href="/privacy-policy.html" target="_blank" style="color: #7e0a98; text-decoration: underline;">Learn more</a>.</p> <!-- Link to your privacy/cookie policy -->
+    </div>
+    <div class="cookie-buttons">
+      <!-- Optional: Add a settings/reject button if needed -->
+      <!-- <button class="btn btn-outline" id="cookie-reject">Reject</button> -->
+      <button class="btn btn-primary" id="cookie-accept">Accept All</button>
+    </div>
+  </div>
+  <!-- *** END: Keep only this Cookie Consent Banner *** -->
+
+    <script src="landing.js"></script>
+ 
+</body>
+</html>

@@ -37,28 +37,51 @@ document.addEventListener('DOMContentLoaded', function() {
     
     playIcons.forEach(icon => {
       icon.addEventListener('click', function() {
-        // This would normally trigger video playback
-        // For demonstration, we're just changing the icon
-        const currentIcon = this.innerHTML;
+        const signVideo = this.closest('.sign-video');
+        if (!signVideo) return;
         
-        if (currentIcon.includes('play')) {
+        // Check if a video element already exists
+        let video = signVideo.querySelector('video');
+        
+        if (!video) {
+          // Create video element
+          video = document.createElement('video');
+          video.src = signVideo.querySelector('img').src.replace('/api/placeholder', '/videos'); // Assuming video path
+          video.controls = true;
+          video.autoplay = true;
+          video.style.width = '100%';
+          video.style.borderRadius = '8px';
+          
+          // Replace image with video
+          signVideo.innerHTML = '';
+          signVideo.appendChild(video);
+          
+          // Change icon to pause
           this.innerHTML = '<i class="fas fa-pause-circle"></i>';
           
-          // Simulate video ending after 3 seconds
-          setTimeout(() => {
-            this.innerHTML = '<i class="fas fa-play-circle"></i>';
+          // Listen for video end
+          video.addEventListener('ended', () => {
+            // Restore image and play icon
+            signVideo.innerHTML = `
+              <img src="${video.src.replace('/videos', '/api/placeholder')}" alt="Sign video">
+              <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+            `;
             
-            // Find parent sign-item and mark as completed if it's active
-            const signItem = this.closest('.sign-item');
+            // Mark sign-item as completed if active
+            const signItem = signVideo.closest('.sign-item');
             if (signItem && signItem.classList.contains('active')) {
               signItem.classList.add('completed');
-              
-              // Update challenge progress
               updateChallengeProgress();
             }
-          }, 3000);
+          });
         } else {
-          this.innerHTML = '<i class="fas fa-play-circle"></i>';
+          if (video.paused) {
+            video.play();
+            this.innerHTML = '<i class="fas fa-pause-circle"></i>';
+          } else {
+            video.pause();
+            this.innerHTML = '<i class="fas fa-play-circle"></i>';
+          }
         }
       });
     });

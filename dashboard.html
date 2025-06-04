@@ -6,6 +6,7 @@
   <title>Sema na Mimi | Dashboard</title>
   <link rel="stylesheet" href="dashboard.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -14,12 +15,13 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">🖐️ Sema na Mimi</div>
+    <div class="logo"><a href="index.html"></a>🖐️ Sema na Mimi</div>
     <nav>
       <ul class="nav-links">
         <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-        <li><a href="#"><i class="fas fa-book"></i> My Learning</a></li>
-        <li><a href="#"><i class="fas fa-video"></i> Interpreter</a></li>
+        <li><a href="#"><i class="fas fa-book"></i> Interactive Learning Hub</a></li>
+        <li><a href="#"><i class="fas fa-video"></i> Real-Time Interpreter</a></li>
+        <li><a href="#"><i class="fas fa-language"></i> Text-to-Sign Translator</a></li>
         <li><a href="#"><i class="fas fa-comments"></i> Community</a></li>
         <li><a href="#"><i class="fas fa-bell"></i> <span class="notification-badge">2</span></a></li>
       </ul>
@@ -46,7 +48,7 @@
 
   <!-- Main Content -->
   <main id="main-content" class="dashboard-container">
-    <!-- Welcome Banner -->
+    <!-- Welcome Banner with Progress Overview -->
     <section class="welcome-banner">
       <div class="welcome-content">
         <h1>Karibu, Amani! <span class="hand-wave">👋</span></h1>
@@ -64,7 +66,7 @@
                 <text x="18" y="20.35" class="percentage">65%</text>
               </svg>
             </div>
-            <span>Level Progress</span>
+            <span>Level 3 Progress</span>
           </div>
           <div class="progress-item">
             <div class="streak-counter">
@@ -72,6 +74,13 @@
               <i class="fas fa-fire"></i>
             </div>
             <span>Day Streak</span>
+          </div>
+          <div class="progress-item">
+            <div class="signs-learned-counter">
+              <span class="signs-number">124</span>
+              <i class="fas fa-hand-paper"></i>
+            </div>
+            <span>Signs Learned</span>
           </div>
           <div class="progress-item">
             <div class="xp-counter">
@@ -87,172 +96,272 @@
       </div>
     </section>
 
-    <!-- Continue Learning Section -->
+    <!-- Quick Access Cards - Main 3 Features -->
     <section class="content-section">
       <div class="section-header">
-        <h2><i class="fas fa-book-open"></i> Continue Learning</h2>
-        <a href="#" class="see-all">See All</a>
+        <h2><i class="fas fa-rocket"></i> Quick Access</h2>
       </div>
-      <div class="course-cards">
-        <div class="course-card active">
-          <div class="course-progress" style="--progress: 75%"></div>
-          <div class="course-icon"><i class="fas fa-comments"></i></div>
-          <div class="course-info">
-            <h3>Common Phrases</h3>
-            <p>Module 3: Questions & Answers</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 75%"></div>
-            </div>
-            <p class="progress-text">75% Complete</p>
+      <div class="quick-access-grid">
+        <div class="quick-access-card text-to-sign">
+          <div class="card-icon">
+            <i class="fas fa-language"></i>
           </div>
-          <a href="#" class="btn btn-primary">Continue</a>
+          <div class="card-content">
+            <h3>Text-to-Sign Translator</h3>
+            <p>Convert text to KSL demonstrations instantly</p>
+            <a href="#" class="btn btn-primary">Translate Now</a>
+          </div>
         </div>
-        <div class="course-card">
-          <div class="course-progress" style="--progress: 40%"></div>
-          <div class="course-icon"><i class="fas fa-utensils"></i></div>
-          <div class="course-info">
-            <h3>Food & Dining</h3>
-            <p>Module 2: Ordering Food</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 40%"></div>
-            </div>
-            <p class="progress-text">40% Complete</p>
+        <div class="quick-access-card real-time">
+          <div class="card-icon">
+            <i class="fas fa-video"></i>
           </div>
-          <a href="#" class="btn btn-primary">Continue</a>
+          <div class="card-content">
+            <h3>Real-Time Interpreter</h3>
+            <p>Connect with live interpreters for assistance</p>
+            <div class="availability online">
+              <span class="status-dot"></span>
+              <span>Available Now</span>
+            </div>
+            <a href="#" class="btn btn-primary">Connect</a>
+          </div>
         </div>
-        <div class="course-card">
-          <div class="course-progress" style="--progress: 20%"></div>
-          <div class="course-icon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="course-info">
-            <h3>Time & Calendar</h3>
-            <p>Module 1: Basic Concepts</p>
-            <div class="progress-bar">
-              <div class="progress" style="width: 20%"></div>
-            </div>
-            <p class="progress-text">20% Complete</p>
+        <div class="quick-access-card learning-hub">
+          <div class="card-icon">
+            <i class="fas fa-book"></i>
           </div>
-          <a href="#" class="btn btn-primary">Continue</a>
+          <div class="card-content">
+            <h3>Interactive Learning Hub</h3>
+            <p>Structured lessons and practice modules</p>
+            <a href="#" class="btn btn-primary">Start Learning</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Daily Challenge Section -->
+    <!-- Today's Challenge Section -->
     <section class="content-section">
       <div class="section-header">
-        <h2><i class="fas fa-bolt"></i> Daily Challenge</h2>
+        <h2><i class="fas fa-bolt"></i> Today's Challenge</h2>
         <span class="daily-reset">Resets in: 8h 24m</span>
       </div>
-      <div class="daily-challenge-card">
+      <div class="todays-challenge-card">
         <div class="challenge-content">
           <div class="challenge-header">
-            <h3>Master These Signs</h3>
-            <div class="xp-badge">+50 XP</div>
+            <h3>Daily Sign to Learn</h3>
+            <div class="xp-badge">+25 XP</div>
           </div>
-          <p>Practice and recognize these 5 signs to complete today's challenge!</p>
-          <div class="sign-gallery">
-            <div class="sign-item completed">
-              <div class="sign-video">
-                <img src="/api/placeholder/120/120" alt="Sign for Hello">
-                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+          <div class="daily-sign-showcase">
+            <div class="sign-display">
+              <div class="sign-video-large">
+                <img src="/api/placeholder/200/200" alt="Sign for Good Morning">
+                <div class="play-icon-large"><i class="fas fa-play-circle"></i></div>
               </div>
-              <p>Hello</p>
-              <span class="status-icon"><i class="fas fa-check-circle"></i></span>
-            </div>
-            <div class="sign-item completed">
-              <div class="sign-video">
-                <img src="/api/placeholder/120/120" alt="Sign for Thank You">
-                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+              <div class="sign-info">
+                <h4>Good Morning</h4>
+                <p class="sign-description">A common greeting used to start conversations in the morning</p>
+                <div class="difficulty-badge beginner">Beginner</div>
               </div>
-              <p>Thank You</p>
-              <span class="status-icon"><i class="fas fa-check-circle"></i></span>
-            </div>
-            <div class="sign-item active">
-              <div class="sign-video">
-                <img src="/api/placeholder/120/120" alt="Sign for Friend">
-                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-              </div>
-              <p>Friend</p>
-              <span class="status-icon"><i class="fas fa-circle"></i></span>
-            </div>
-            <div class="sign-item">
-              <div class="sign-video">
-                <img src="/api/placeholder/120/120" alt="Sign for Help">
-                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-              </div>
-              <p>Help</p>
-              <span class="status-icon"><i class="fas fa-circle"></i></span>
-            </div>
-            <div class="sign-item">
-              <div class="sign-video">
-                <img src="/api/placeholder/120/120" alt="Sign for Sorry">
-                <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-              </div>
-              <p>Sorry</p>
-              <span class="status-icon"><i class="fas fa-circle"></i></span>
             </div>
           </div>
         </div>
         <div class="challenge-action">
-          <a href="#" class="btn btn-accent">Practice Now</a>
-          <p>2/5 Completed</p>
+          <a href="#" class="btn btn-accent">Learn This Sign</a>
+          <p>Complete to earn XP</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Activity Section -->
+    <section class="content-section">
+      <div class="section-header">
+        <h2><i class="fas fa-history"></i> Recent Activity</h2>
+      </div>
+      <div class="recent-activity">
+        <h3>Last 3 Signs Learned</h3>
+        <div class="recent-signs-list">
+          <div class="recent-sign-item completed">
+            <div class="sign-thumbnail">
+              <img src="/api/placeholder/60/60" alt="Thank You sign">
+            </div>
+            <div class="sign-details">
+              <h4>Thank You</h4>
+              <p>Completed 2 hours ago</p>
+              <div class="completion-badge">
+                <i class="fas fa-check-circle"></i> Mastered
+              </div>
+            </div>
+          </div>
+          <div class="recent-sign-item completed">
+            <div class="sign-thumbnail">
+              <img src="/api/placeholder/60/60" alt="Please sign">
+            </div>
+            <div class="sign-details">
+              <h4>Please</h4>
+              <p>Completed yesterday</p>
+              <div class="completion-badge">
+                <i class="fas fa-check-circle"></i> Mastered
+              </div>
+            </div>
+          </div>
+          <div class="recent-sign-item completed">
+            <div class="sign-thumbnail">
+              <img src="/api/placeholder/60/60" alt="Family sign">
+            </div>
+            <div class="sign-details">
+              <h4>Family</h4>
+              <p>Completed 2 days ago</p>
+              <div class="completion-badge">
+                <i class="fas fa-check-circle"></i> Mastered
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Main Dashboard Grid -->
     <div class="dashboard-grid">
-      <!-- Explore Learning Paths -->
-      <section class="content-section grid-span-2">
+      <!-- Achievements Section -->
+      <section class="content-section">
         <div class="section-header">
-          <h2><i class="fas fa-map-signs"></i> Learning Paths</h2>
+          <h2><i class="fas fa-trophy"></i> Achievements</h2>
           <a href="#" class="see-all">See All</a>
         </div>
-        <div class="learning-paths">
-          <div class="path-card beginner">
-            <div class="path-icon"><i class="fas fa-seedling"></i></div>
-            <div class="path-info">
-              <h3>Beginner's Path</h3>
-              <p>Alphabet, Numbers, and Basic Greetings</p>
-              <div class="path-modules">
-                <span class="module-count">8 Modules</span>
-                <span class="module-completion">3 Completed</span>
-              </div>
+        <div class="achievements-grid">
+          <div class="achievement-badge earned">
+            <div class="badge-icon">
+              <i class="fas fa-star"></i>
             </div>
-            <a href="#" class="path-button"><i class="fas fa-arrow-right"></i></a>
-          </div>
-          <div class="path-card intermediate">
-            <div class="path-icon"><i class="fas fa-tree"></i></div>
-            <div class="path-info">
-              <h3>Everyday Conversations</h3>
-              <p>Common Phrases, Questions, and Daily Activities</p>
-              <div class="path-modules">
-                <span class="module-count">12 Modules</span>
-                <span class="module-completion">2 Completed</span>
-              </div>
-            </div>
-            <a href="#" class="path-button"><i class="fas fa-arrow-right"></i></a>
-          </div>
-          <div class="path-card advanced locked">
-            <div class="path-icon"><i class="fas fa-mountain"></i></div>
-            <div class="path-info">
-              <h3>Advanced Conversations</h3>
-              <p>Complex Topics and Fluent Expressions</p>
-              <div class="path-modules">
-                <span class="module-lock"><i class="fas fa-lock"></i> Complete Intermediate First</span>
-              </div>
+            <div class="badge-info">
+              <h4>First Steps</h4>
+              <p>Learned your first 10 signs</p>
             </div>
           </div>
-          <div class="path-card specialized">
-            <div class="path-icon"><i class="fas fa-briefcase"></i></div>
-            <div class="path-info">
-              <h3>Professional KSL</h3>
-              <p>Workplace, Education, and Healthcare</p>
-              <div class="path-modules">
-                <span class="module-count">15 Modules</span>
-                <span class="module-completion">0 Completed</span>
-              </div>
+          <div class="achievement-badge earned">
+            <div class="badge-icon">
+              <i class="fas fa-fire"></i>
             </div>
-            <a href="#" class="path-button"><i class="fas fa-arrow-right"></i></a>
+            <div class="badge-info">
+              <h4>Week Warrior</h4>
+              <p>7-day learning streak</p>
+            </div>
+          </div>
+          <div class="achievement-badge earned">
+            <div class="badge-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="badge-info">
+              <h4>Quick Learner</h4>
+              <p>Completed a module in one day</p>
+            </div>
+          </div>
+          <div class="achievement-badge locked">
+            <div class="badge-icon">
+              <i class="fas fa-crown"></i>
+            </div>
+            <div class="badge-info">
+              <h4>Sign Master</h4>
+              <p>Learn 500 signs</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Stats Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2><i class="fas fa-chart-line"></i> Quick Stats</h2>
+        </div>
+        <div class="quick-stats">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <h3>2h 45m</h3>
+              <p>Time Spent Learning</p>
+              <span class="stat-period">This Week</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="stat-info">
+              <h3>87%</h3>
+              <p>Accuracy Rate</p>
+              <span class="stat-period">Overall</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-info">
+              <h3>12</h3>
+              <p>Days Active</p>
+              <span class="stat-period">This Month</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <div class="stat-info">
+              <h3>3rd</h3>
+              <p>Leaderboard Rank</p>
+              <span class="stat-period">Weekly</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Continue Learning Section -->
+      <section class="content-section grid-span-2">
+        <div class="section-header">
+          <h2><i class="fas fa-book-open"></i> Continue Learning</h2>
+          <a href="#" class="see-all">See All</a>
+        </div>
+        <div class="course-cards">
+          <div class="course-card active">
+            <div class="course-progress" style="--progress: 75%"></div>
+            <div class="course-icon"><i class="fas fa-comments"></i></div>
+            <div class="course-info">
+              <h3>Common Phrases</h3>
+              <p>Module 3: Questions & Answers</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 75%"></div>
+              </div>
+              <p class="progress-text">75% Complete</p>
+            </div>
+            <a href="#" class="btn btn-primary">Continue</a>
+          </div>
+          <div class="course-card">
+            <div class="course-progress" style="--progress: 40%"></div>
+            <div class="course-icon"><i class="fas fa-utensils"></i></div>
+            <div class="course-info">
+              <h3>Food & Dining</h3>
+              <p>Module 2: Ordering Food</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 40%"></div>
+              </div>
+              <p class="progress-text">40% Complete</p>
+            </div>
+            <a href="#" class="btn btn-primary">Continue</a>
+          </div>
+          <div class="course-card">
+            <div class="course-progress" style="--progress: 20%"></div>
+            <div class="course-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="course-info">
+              <h3>Time & Calendar</h3>
+              <p>Module 1: Basic Concepts</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 20%"></div>
+              </div>
+              <p class="progress-text">20% Complete</p>
+            </div>
+            <a href="#" class="btn btn-primary">Continue</a>
           </div>
         </div>
       </section>
@@ -313,29 +422,34 @@
         </div>
       </section>
 
-      <!-- Practice with AI Section -->
+      <!-- Quick Dictionary -->
       <section class="content-section">
         <div class="section-header">
-          <h2><i class="fas fa-robot"></i> Practice with AI</h2>
+          <h2><i class="fas fa-book"></i> KSL Dictionary</h2>
         </div>
-        <div class="ai-practice-card">
-          <div class="ai-practice-content">
-            <h3>Real-time Sign Recognition</h3>
-            <p>Practice your signs and get instant feedback using your camera.</p>
-            <ul class="feature-list">
-              <li><i class="fas fa-check"></i> Instant feedback</li>
-              <li><i class="fas fa-check"></i> Works offline</li>
-              <li><i class="fas fa-check"></i> No recordings stored</li>
-            </ul>
-            <div class="ai-actions">
-              <a href="#" class="btn btn-primary">Start Practice</a>
-              <span class="camera-permission">
-                <i class="fas fa-camera"></i> Requires camera access
-              </span>
-            </div>
+        <div class="dictionary-widget">
+          <div class="search-container">
+            <input type="text" placeholder="Search for a sign..." class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
           </div>
-          <div class="ai-practice-image">
-            <img src="/api/placeholder/200/250" alt="AI Practice Illustration">
+          <h3>Recently Viewed Signs</h3>
+          <div class="recent-signs">
+            <div class="sign-chip">
+              <span>Hello</span>
+              <img src="/api/placeholder/30/30" alt="Hello sign">
+            </div>
+            <div class="sign-chip">
+              <span>Family</span>
+              <img src="/api/placeholder/30/30" alt="Family sign">
+            </div>
+            <div class="sign-chip">
+              <span>Water</span>
+              <img src="/api/placeholder/30/30" alt="Water sign">
+            </div>
+            <div class="sign-chip">
+              <span>School</span>
+              <img src="/api/placeholder/30/30" alt="School sign">
+            </div>
           </div>
         </div>
       </section>
@@ -380,152 +494,58 @@
           </div>
         </div>
       </section>
-
-      <!-- Quick Dictionary -->
-      <section class="content-section">
-        <div class="section-header">
-          <h2><i class="fas fa-book"></i> KSL Dictionary</h2>
-        </div>
-        <div class="dictionary-widget">
-          <div class="search-container">
-            <input type="text" placeholder="Search for a sign..." class="search-input">
-            <button class="search-btn"><i class="fas fa-search"></i></button>
-          </div>
-          <h3>Recently Viewed Signs</h3>
-          <div class="recent-signs">
-            <div class="sign-chip">
-              <span>Hello</span>
-              <img src="/api/placeholder/30/30" alt="Hello sign">
-            </div>
-            <div class="sign-chip">
-              <span>Family</span>
-              <img src="/api/placeholder/30/30" alt="Family sign">
-            </div>
-            <div class="sign-chip">
-              <span>Water</span>
-              <img src="/api/placeholder/30/30" alt="Water sign">
-            </div>
-            <div class="sign-chip">
-              <span>School</span>
-              <img src="/api/placeholder/30/30" alt="School sign">
-            </div>
-          </div>
-          <div class="dictionary-categories">
-            <div class="category-item">
-              <i class="fas fa-utensils"></i>
-              <span>Food</span>
-            </div>
-            <div class="category-item">
-              <i class="fas fa-home"></i>
-              <span>Home</span>
-            </div>
-            <div class="category-item">
-              <i class="fas fa-heart"></i>
-              <span>Feelings</span>
-            </div>
-            <div class="category-item">
-              <i class="fas fa-tshirt"></i>
-              <span>Clothing</span>
-            </div>
-            <div class="category-item">
-              <i class="fas fa-graduation-cap"></i>
-              <span>Education</span>
-            </div>
-            <div class="category-item">
-              <i class="fas fa-bus"></i>
-              <span>Transport</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Get Help Section -->
-      <section class="content-section">
-        <div class="section-header">
-          <h2><i class="fas fa-hands-helping"></i> Get Help</h2>
-        </div>
-        <div class="help-options">
-          <div class="help-card">
-            <div class="help-icon"><i class="fas fa-video"></i></div>
-            <h3>Live Interpreter</h3>
-            <p>Connect with a KSL interpreter for real-time assistance</p>
-            <div class="availability online">
-              <span class="status-dot"></span>
-              <span>Available Now</span>
-            </div>
-            <a href="#" class="btn btn-outline">Connect</a>
-          </div>
-          <div class="help-card">
-            <div class="help-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-            <h3>Find a Tutor</h3>
-            <p>Book a one-on-one session with a KSL teacher</p>
-            <span class="tutor-count">12 Tutors Available</span>
-            <a href="#" class="btn btn-outline">Browse Tutors</a>
-          </div>
-          <div class="help-card">
-            <div class="help-icon"><i class="fas fa-question-circle"></i></div>
-            <h3>Support Center</h3>
-            <p>Find answers or contact our support team</p>
-            <a href="#" class="btn btn-outline">Get Support</a>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="dashboard-footer">
+      <!-- Footer -->
+   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-links">
-        <a href="#">About</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Support</a>
+      <div class="footer-column">
+        <h3>Sema na Mimi</h3>
+        <p>Breaking communication barriers for deaf children and their families across Kenya.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <p class="copyright">&copy; 2025 Sema na Mimi | Made with 💜 for the deaf community in Kenya</p>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#learn">Learn KSL</a></li>
+          <li><a href="#interpreter">Get an Interpreter</a></li>
+          <li><a href="#volunteer">Volunteer</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul class="footer-links">
+          <li><a href="#">KSL Dictionary</a></li>
+          <li><a href="#">Deaf Schools Directory</a></li>
+          <li><a href="#">Support Services</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Subscribe</h3>
+        <p>Get updates on our latest features and events.</p>
+        <form>
+          <input type="email" placeholder="Your email" style="padding: 10px; width: 100%; margin: 10px 0; border-radius: 4px; border: none;">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Sema na Mimi | Made with 💜 for the deaf community in Kenya</p>
     </div>
   </footer>
+  
 
-  <script>
-    // Sample JavaScript for user dropdown toggle
-    document.addEventListener('DOMContentLoaded', function() {
-      const userAvatar = document.querySelector('.user-avatar');
-      const userDropdown = document.querySelector('.user-dropdown');
-      
-      userAvatar.addEventListener('click', function() {
-        userDropdown.classList.toggle('active');
-      });
-      
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!event.target.closest('.user-menu')) {
-          userDropdown.classList.remove('active');
-        }
-      });
-      
-      // Sample code to simulate sign videos playing
-      const playIcons = document.querySelectorAll('.play-icon');
-      playIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-          // This would normally trigger video playback
-          this.innerHTML = '<i class="fas fa-pause-circle"></i>';
-          setTimeout(() => {
-            this.innerHTML = '<i class="fas fa-play-circle"></i>';
-          }, 3000);
-        });
-      });
-      
-      // Show cookie consent banner
-      const cookieBanner = document.getElementById('cookie-consent-banner');
-      if (cookieBanner) {
-        setTimeout(() => {
-          cookieBanner.style.display = 'flex';
-        }, 1000);
-      }
-    });
-  </script>
   <script src="dashboard.js"></script>
-</body>
+  <script src="landing.js"></script>"
 </body>
 </html>

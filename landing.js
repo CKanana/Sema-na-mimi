@@ -1,10 +1,94 @@
-document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener('click', function() {
     const navLinks = document.querySelector('.nav-links');
     navLinks.classList.toggle('active');
     const expanded = this.getAttribute('aria-expanded') === 'true' || false;
     this.setAttribute('aria-expanded', !expanded);
   });
+}
+  // Language toggle functionality
+        document.querySelectorAll('.lang-option').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.lang-option').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Here you would implement actual language switching
+                const lang = this.dataset.lang;
+                console.log('Switching to language:', lang);
+            });
+        });
 
+        // Demo video placeholder
+        function playDemo() {
+            alert('Demo video would play here! This would showcase:\n\n• AI sign recognition in action\n• Interactive lessons\n• Progress tracking\n• Community features\n\nIn a real implementation, this would be a 30-second video.');
+        }
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-reveal elements
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive stats animation
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-item strong');
+            stats.forEach(stat => {
+                const finalValue = parseInt(stat.textContent.replace(/[^\d]/g, ''));
+                let currentValue = 0;
+                const increment = finalValue / 100;
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        currentValue = finalValue;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(currentValue).toLocaleString() + (stat.textContent.includes('+') ? '+' : stat.textContent.includes('%') ? '%' : '');
+                }, 20);
+            });
+        }
+
+        // Trigger stats animation when hero section is visible
+        const heroObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 500);
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroObserver.observe(heroSection);
+        }
   // Show cookie banner after a slight delay
   setTimeout(function() {
     const cookieBanner = document.querySelector('.cookie-banner');
