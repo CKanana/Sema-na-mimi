@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings - Sema na Mimi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="landing.css" rel="stylesheet"> <!-- Base styles -->
+    <link href="profile-settings.css" rel="stylesheet"> <!-- Page-specific styles -->
+</head>
+<body>
+    <!-- Navigation (Consistent with other pages) -->
+    <nav class="navbar">
+        <a href="landing.html" style="text-decoration: none; color: inherit;">
+            <div class="logo">
+                <span class="hand-icon">🖐️</span>
+                Sema na Mimi
+            </div>
+        </a>
+        <div class="nav-right">
+            <div class="language-toggle">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="sw">SW</button>
+            </div>
+            <div class="nav-buttons">
+                <!-- Example: Link to Dashboard if user is logged in -->
+                <a href="dashboard.html" class="btn btn-outline">Dashboard</a>
+                <a href="landing.html" class="btn btn-primary">Log Out</a> <!-- Example logout -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Settings Section -->
+    <main class="profile-settings-page">
+        <div class="settings-container">
+            <header class="settings-header">
+                <h1>Your Profile Settings</h1>
+                <p>Manage your account details, preferences, and security.</p>
+                <a href="dashboard.html" class="btn btn-outline btn-small back-to-dashboard-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+            </header>
+
+            <form id="profile-settings-form" novalidate>
+                <!-- Message Area for feedback -->
+                <div id="settings-message-area" class="message-area" style="display: none;"></div>
+
+                <!-- Personal Information Section -->
+                <fieldset class="settings-section">
+                    <legend>Personal Information</legend>
+                    <div class="profile-picture-area">
+                        <img src="https://via.placeholder.com/150/7e0a98/FFFFFF?Text=User" alt="Current profile picture" id="profile-pic-preview" class="profile-pic">
+                        <label for="profile-picture-upload" class="btn btn-outline btn-small">
+                            <i class="fas fa-camera"></i> Change Picture
+                        </label>
+                        <input type="file" id="profile-picture-upload" name="profile-picture" accept="image/*" class="sr-only">
+                        <small>Recommended: Square image, JPG or PNG, max 2MB.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="fullName" placeholder="e.g., Jina Kamili" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Your unique username" required readonly>
+                        <small>Username cannot be changed.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                </fieldset>
+
+                <!-- Security Section -->
+                <fieldset class="settings-section">
+                    <legend>Change Password</legend>
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" name="currentPassword" placeholder="Enter your current password">
+                        <span class="toggle-password-visibility" data-for="current-password">👁️</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" name="newPassword" placeholder="Enter a new strong password">
+                        <span class="toggle-password-visibility" data-for="new-password">👁️</span>
+                        <small>Minimum 8 characters. Include uppercase, lowercase, number, and symbol for strength.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" name="confirmNewPassword" placeholder="Re-enter new password">
+                        <span class="toggle-password-visibility" data-for="confirm-new-password">👁️</span>
+                    </div>
+                </fieldset>
+
+                <!-- Preferences Section -->
+                <fieldset class="settings-section">
+                    <legend>Learning Preferences</legend>
+                    <div class="form-group">
+                        <label for="daily-goal">Daily Learning Goal</label>
+                        <select id="daily-goal" name="dailyGoal">
+                            <option value="10">10 minutes</option>
+                            <option value="20" selected>20 minutes</option>
+                            <option value="30">30 minutes</option>
+                            <option value="45">45 minutes</option>
+                            <option value="60">1 hour</option>
+                        </select>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="email-notifications-lessons" name="emailNotificationsLessons" checked>
+                        <label for="email-notifications-lessons">Receive email notifications for new lessons & features.</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="email-notifications-progress" name="emailNotificationsProgress">
+                        <label for="email-notifications-progress">Receive weekly progress reports via email.</label>
+                    </div>
+                </fieldset>
+
+                <!-- Account Actions Section -->
+                <fieldset class="settings-section">
+                    <legend>Account Actions</legend>
+                    <div class="form-group">
+                        <button type="button" id="deactivate-account-btn" class="btn btn-danger">
+                            <i class="fas fa-user-slash"></i> Deactivate Account
+                        </button>
+                        <small>This action is not immediately reversible. You will be logged out.</small>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" id="save-settings-btn" class="btn btn-primary btn-large">
+                        <i class="fas fa-save"></i> Save All Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer (Consistent with other pages) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Sema na Mimi</h3>
+                <p>Breaking communication barriers for deaf children and their families across Kenya.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="landing.html">Home</a></li>
+                    <li><a href="text-to-sign.html">Text to KSL</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="landing.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">KSL Dictionary</a></li>
+                    <li><a href="landing.html#faq">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+             <div class="footer-column">
+                <h3>My Account</h3>
+                <ul class="footer-links">
+                    <li><a href="profile-settings.html">Profile Settings</a></li>
+                    <li><a href="#">Learning History</a></li>
+                    <li><a href="landing.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Sema na Mimi | Made with 💜 for the deaf community in Kenya</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner (copied from landing.html) -->
+    <div id="cookie-consent-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-text">
+            <p>We use cookies to enhance your experience, analyze site traffic, and potentially personalize content. By clicking "Accept All", you agree to our use of cookies. <a href="/privacy-policy.html" target="_blank" style="color: #7e0a98; text-decoration: underline;">Learn more</a>.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="btn btn-primary" id="cookie-accept">Accept All</button>
+        </div>
+    </div>
+
+    <script src="landing.js"></script> <!-- For shared functionalities -->
+    <script src="profile-settings.js"></script> <!-- For page-specific logic -->
+
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to KSL Translator - Sema na Mimi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="landing.css" rel="stylesheet">
+    <link href="text-to-sign.css" rel="stylesheet">
+    
+<body>
+    <!-- Back to Dashboard Button -->
+    <a href="dashboard.html" class="back-to-dashboard" aria-label="Back to Dashboard">
+        <i class="fas fa-arrow-left"></i>
+        <span class="sr-only">Back to Dashboard</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="landing.html" style="text-decoration: none; color: inherit;">
+            <div class="logo">
+                <span class="hand-icon">🖐️</span>
+                Sema na Mimi
+            </div>
+        </a>
+        <div class="nav-right">
+            <div class="language-toggle">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="sw">SW</button>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Text to Sign Translator Section -->
+    <section class="translator-section">
+        <div class="translator-container">
+            <h1 class="translator-main-title">Text to Kenyan Sign Language (KSL)</h1>
+            <p class="translator-intro">
+                Instantly translate English or Swahili text into Kenyan Sign Language.
+                Our AI-powered tool helps you visualize how words and phrases are signed in KSL.
+                Type your message below to see the signs!
+            </p>
+
+            <div class="translator-tool">
+                <!-- Enhanced Input Area -->
+                <div class="input-area">
+                    <div class="input-controls">
+                        <div class="language-selector">
+                            <label for="input-language">Input Language:</label>
+                            <select id="input-language">
+                                <option value="en">English</option>
+                                <option value="sw">Swahili</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="textarea-container">
+                        <label for="text-input" class="sr-only">Enter text to translate</label>
+                        <textarea 
+                            id="text-input" 
+                            name="text-input" 
+                            placeholder="Enter text here (e.g., Hello, how are you? or Habari yako?)" 
+                            rows="5"
+                            maxlength="500"
+                        ></textarea>
+                        <div class="char-counter">
+                            <span id="char-count">0</span>/500
+                        </div>
+                    </div>
+
+                    <div class="input-actions">
+                        <button id="translate-btn" class="btn btn-primary btn-large">
+                            <i class="fas fa-language"></i> Translate to KSL
+                        </button>
+                        <button id="clear-btn" class="btn btn-clear">
+                            <i class="fas fa-eraser"></i> Clear Text
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Enhanced Output Area -->
+                <div class="output-area-container">
+                    <h2 class="output-title">KSL Output:</h2>
+                    
+                    <!-- Video Player -->
+                    <div class="video-player-container">
+                        <div class="sign-placeholder">
+                            <span class="hand-icon-large">🤟</span>
+                            <p>Your KSL translation will appear here.</p>
+                            <p class="small-text">Our AI will generate sign sequences for your text.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Controls -->
+                    <div class="video-controls">
+                        <button class="control-btn" id="play-btn">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                        <button class="control-btn" id="pause-btn">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button class="control-btn" id="repeat-btn">
+                            <i class="fas fa-redo"></i> Repeat
+                        </button>
+                        <div class="speed-control">
+                            <span>Speed:</span>
+                            <input type="range" class="speed-slider" min="0.5" max="2" step="0.25" value="1" id="speed-slider">
+                            <span id="speed-value">1x</span>
+                        </div>
+                    </div>
+
+                    <!-- Sign Thumbnails -->
+                    <div class="sign-thumbnails" id="sign-thumbnails">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+
+                    <div id="sign-output-area" style="display: none;">
+                        <!-- This maintains compatibility with existing structure -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Phrases Section -->
+            <div class="common-phrases">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Common Phrases
+                </h2>
+                <div class="phrase-buttons">
+                    <button class="phrase-btn" data-phrase="Hello">
+                        <div class="phrase-text">Hello</div>
+                        <div class="phrase-translation">KSL: Hujambo</div>
+                    </button>
+                    <button class="phrase-btn" data-phrase="Thank you">
+                        <div class="phrase-text">Thank you</div>
+                        <div class="phrase-translation">KSL: Asante</div>
+                    </button>
+                    <button class="phrase-btn" data-phrase="How are you?">
+                        <div class="phrase-text">How are you?</div>
+                        <div class="phrase-translation">KSL: Hali gani?</div>
+                    </button>
+                    <button class="phrase-btn" data-phrase="Good morning">
+                        <div class="phrase-text">Good morning</div>
+                        <div class="phrase-translation">KSL: Habari za asubuhi</div>
+                    </button>
+                    <button class="phrase-btn" data-phrase="Please">
+                        <div class="phrase-text">Please</div>
+                        <div class="phrase-translation">KSL: Tafadhali</div>
+                    </button>
+                    <button class="phrase-btn" data-phrase="I'm sorry">
+                        <div class="phrase-text">I'm sorry</div>
+                        <div class="phrase-translation">KSL: Pole</div>
+                    </button>
+                    <button class="phrase-btn" data-phrase="Goodbye">
+                        <div class="phrase-text">Goodbye</div>
+                        <div class="phrase-translation">KSL: Kwaheri</div>
+                    </button>
+                    <button class="phrase-btn" data-phrase="Yes">
+                        <div class="phrase-text">Yes</div>
+                        <div class="phrase-translation">KSL: Ndiyo</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dictionary Quick Access -->
+            <div class="dictionary-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Dictionary Quick Access
+                </h2>
+                <div class="dictionary-search">
+                    <input type="text" class="search-input" id="word-search" placeholder="Search for individual words...">
+                    <button class="btn btn-search" id="search-word-btn">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+                <div class="recent-signs">
+                    <h3 style="margin-bottom: 10px; font-size: 1em; color: #555;">Recently Used Signs:</h3>
+                    <div class="recent-signs-list" id="recent-signs">
+                        <!-- Recent signs will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save/Share Options -->
+            <div class="save-share-section">
+                <button class="btn btn-save btn-large" id="save-translation">
+                    <i class="fas fa-heart"></i> Save Translation
+                </button>
+                <button class="btn btn-share btn-large" id="share-translation">
+                    <i class="fas fa-share"></i> Share Signs
+                </button>
+            </div>
+
+            <div class="translator-info">
+                <p><i class="fas fa-info-circle"></i> Our KSL translator uses advanced AI but is continually learning. For critical communications, please consult a certified KSL interpreter.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section tts-cta">
+        <div class="cta-container">
+            <h2 class="cta-title">Want to Learn More KSL?</h2>
+            <p class="cta-subtitle">
+                This translator is a great start! Join Sema na Mimi to access structured lessons,
+                interactive AI-powered practice, and a supportive community.
+            </p>
+            <div class="cta-buttons">
+                <a href="signup.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-user-plus"></i>
+                    Start Learning Free
+                </a>
+                <a href="landing.html#features" class="btn btn-outline btn-large">
+                    <i class="fas fa-rocket"></i>
+                    Explore Learning Features
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Sema na Mimi</h3>
+                <p>Breaking communication barriers for deaf children and their families across Kenya.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="landing.html">Home</a></li>
+                    <li><a href="landing.html#features">Learn KSL</a></li>
+                    <li><a href="landing.html#interpreter">Get an Interpreter</a></li>
+                    <li><a href="landing.html#volunteer">Volunteer</a></li>
+                    <li><a href="landing.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">KSL Dictionary</a></li>
+                    <li><a href="#">Deaf Schools Directory</a></li>
+                    <li><a href="#">Support Services</a></li>
+                    <li><a href="landing.html#faq">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Subscribe</h3>
+                <p>Get updates on our latest features and events.</p>
+                <form id="subscribe-form-tts">
+                    <label for="email-subscribe-tts" class="sr-only">Your email</label>
+                    <input type="email" id="email-subscribe-tts" name="email" placeholder="Your email" style="padding: 10px; width: 100%; margin: 10px 0; border-radius: 4px; border: none;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Sema na Mimi | Made with 💜 for the deaf community in Kenya</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-text">
+            <p>We use cookies to enhance your experience, analyze site traffic, and potentially personalize content. By clicking "Accept All", you agree to our use of cookies. <a href="/privacy-policy.html" target="_blank" style="color: #7e0a98; text-decoration: underline;">Learn more</a>.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="btn btn-primary" id="cookie-accept">Accept All</button>
+        </div>
+    </div>
+
+    <script src="landing.js"></script>
+    <script src="text-to-sign.js"></script>
+    <script>
+        // Enhanced functionality for new features
+        
+        // Character counter
+        const textInput = document.getElementById('text-input');
+        const charCount = document.getElementById('char-count');
+        const charCounter = document.querySelector('.char-counter');
+        
+        textInput.addEventListener('input', function() {
+            const count = this.value.length;
+            charCount.textContent = count;
+            
+            if (count > 450) {
+                charCounter.classList.add('warning');
+            } else {
+                charCounter.classList.remove('warning');
+            }
+        });
+
+        // Clear button
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            textInput.value = '';
+            charCount.textContent = '0';
+            charCounter.classList.remove('warning');
+            
+            // Clear output area
+            const videoContainer = document.querySelector('.video-player-container');
+            videoContainer.innerHTML = `
+                <div class="sign-placeholder">
+                    <span class="hand-icon-large">🤟</span>
+                    <p>Your KSL translation will appear here.</p>
+                    <p class="small-text">Our AI will generate sign sequences for your text.</p>
+                </div>
+            `;
+            
+            document.getElementById('sign-thumbnails').innerHTML = '';
+        });
+
+        // Language toggle for input language
+        document.getElementById('input-language').addEventListener('change', function() {
+            const isSwahili = this.value === 'sw';
+            textInput.placeholder = isSwahili ? 
+                'Andika maandishi hapa (mfano: Hujambo, hali gani?)' : 
+                'Enter text here (e.g., Hello, how are you? or Habari yako?)';
+        });
+
+        // Common phrases
+        document.querySelectorAll('.phrase-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const phrase = this.dataset.phrase;
+                textInput.value = phrase;
+                textInput.dispatchEvent(new Event('input'));
+                
+                // Simulate translation
+                simulateTranslation(phrase);
+            });
+        });
+
+        // Speed control
+        const speedSlider = document.getElementById('speed-slider');
+        const speedValue = document.getElementById('speed-value');
+        
+        speedSlider.addEventListener('input', function() {
+            speedValue.textContent = this.value + 'x';
+        });
+
+        // Video controls
+        document.getElementById('play-btn').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('pause-btn').classList.remove('active');
+            console.log('Playing video...');
+        });
+
+        document.getElementById('pause-btn').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('play-btn').classList.remove('active');
+            console.log('Pausing video...');
+        });
+
+        document.getElementById('repeat-btn').addEventListener('click', function() {
+            console.log('Repeating video...');
+        });
+
+        // Translate button
+        document.getElementById('translate-btn').addEventListener('click', function() {
+            const text = textInput.value.trim();
+            if (!text) {
+                alert('Please enter some text to translate.');
+                return;
+            }
+            
+            simulateTranslation(text);
+        });
+
+        // Dictionary search
+        document.getElementById('search-word-btn').addEventListener('click', function() {
+            const word = document.getElementById('word-search').value.trim();
+            if (word) {
+                simulateWordSearch(word);
+            }
+        });
+
+        // Save/Share buttons
+        document.getElementById('save-translation').addEventListener('click', function() {
+            alert('Translation saved to your favorites!');
+        });
+
+        document.getElementById('share-translation').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'KSL Translation',
+                    text: 'Check out this KSL translation from Sema na Mimi!',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+        });
+
+        // Simulate translation process
+        function simulateTranslation(text) {
+            const videoContainer = document.querySelector('.video-player-container');
+            const thumbnailsContainer = document.getElementById('sign-thumbnails');
+            
+            // Show loading state
+            videoContainer.innerHTML = `
+                <div style="color: white; text-align: center;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 3em; margin-bottom: 15px;"></i>
+                    <p>Translating to KSL...</p>
+                </div>
+            `;
+            
+            // Simulate API delay
+            setTimeout(() => {
+                // Show translated content
+                videoContainer.innerHTML = `
+                    <div style="color: white; text-align: center;">
+                        <i class="fas fa-hands" style="font-size: 3em; margin-bottom: 15px; color: #7e0a98;"></i>
+                        <p style="color: #7e0a98;">KSL signs for: "${text}"</p>
+                        <p style="font-size: 0.9em; color: #ccc;">Video player would display sign sequence here</p>
+                    </div>
+                `;
+                
+                // Generate thumbnails for each word
+                const words = text.split(' ').filter(word => word.length > 0);
+                thumbnailsContainer.innerHTML = words.map((word, index) => `
+                    <div class="sign-thumbnail ${index === 0 ? 'active' : ''}" data-word="${word}">
+                        <i class="fas fa-hand-rock"></i>
+                        <div class="thumbnail-label">${word}</div>
+                    </div>
+                `).join('');
+                
+                // Add click handlers to thumbnails
+                document.querySelectorAll('.sign-thumbnail').forEach(thumb => {
+                    thumb.addEventListener('click', function() {
+                        document.querySelectorAll('.sign-thumbnail').forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+                
+                // Add to recent signs
+                addToRecentSigns(text);
+            }, 1500);
+        }
+
+        // Simulate word search
+        function simulateWordSearch(word) {
+            alert(`Searching dictionary for: "${word}"`);
+            addToRecentSigns(word);
+        }
+
+        // Add to recent signs
+        function addToRecentSigns(text) {
+            const recentContainer = document.getElementById('recent-signs');
+            const words = text.split(' ').filter(word => word.length > 0).slice(0, 5);
+            
+            recentContainer.innerHTML = words.map(word => `
+                <div class="recent-sign" onclick="document.getElementById('word-search').value='${word}'">${word}</div>
+            `).join('');
+        }
+
+        // Initialize recent signs with some examples
+        addToRecentSigns('hello thank you please sorry help');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+/* c:\Users\Crystal Kanana\Desktop\Sema na mimi\Sema-na-mimi\text-to-sign.css */
+body {
+    font-family: 'Arial', sans-serif; /* Ensure consistent font if not already in landing.css */
+}
+
+.translator-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9; /* Light background for the section */
+}
+
+.translator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.translator-main-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.translator-intro {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.translator-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.input-area textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    min-height: 100px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.input-area #translate-btn {
+    display: block;
+    width: auto; /* Or '100%' if you want full width */
+    margin: 0 auto; /* Center button if width is auto */
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
+
+.input-area #translate-btn i {
+    margin-right: 8px;
+}
+
+.output-area-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    min-height: 200px; /* Ensure space for output */
+}
+
+.output-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#sign-output-area .sign-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    height: 150px; /* Adjust as needed */
+}
+
+#sign-output-area .hand-icon-large {
+    font-size: 3em; /* Larger hand icon for placeholder */
+    margin-bottom: 10px;
+    color: #7e0a98; /* Theme color */
+}
+
+#sign-output-area .small-text {
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Styles for actual sign sequence (example) */
+.sign-sequence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.sign-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.sign-item img {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.sign-item span {
+    font-size: 0.9em;
+    color: #333;
+}
+
+.translator-info {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #eef6fc;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #d1e7f7;
+}
+
+.translator-info i {
+    margin-right: 8px;
+    color: #31708f;
+}
+
+/* CTA section specific styling if needed */
+.tts-cta {
+    background-color: #7e0a98; /* Example: different background for this CTA */
+}
+.tts-cta .cta-title, .tts-cta .cta-subtitle {
+    color: #fff;
+}
+
+/* Sr-only for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .translator-main-title {
+        font-size: 2em;
+    }
+    .translator-container {
+        padding: 20px;
+    }
+}
+/* Additional styles for new features */
+        .input-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .language-selector {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .language-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .textarea-container {
+            position: relative;
+        }
+
+        .char-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 15px;
+            font-size: 0.85em;
+            color: #666;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .char-counter.warning {
+            color: #e74c3c;
+        }
+
+        .input-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-clear {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-clear:hover {
+            background-color: #c0392b;
+        }
+
+        .video-player-container {
+            background: #000;
+            border-radius: 6px;
+            aspect-ratio: 16/9;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        .video-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .control-btn {
+            background: #666;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: #555;
+        }
+
+        .control-btn.active {
+            background: #7e0a98;
+        }
+
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .speed-slider {
+            width: 80px;
+        }
+
+        .sign-thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+            justify-content: center;
+        }
+
+        .sign-thumbnail {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sign-thumbnail:hover {
+            background: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .sign-thumbnail.active {
+            border-color: #7e0a98;
+            background: #f3e8ff;
+        }
+
+        .thumbnail-label {
+            position: absolute;
+            bottom: -20px;
+            font-size: 0.7em;
+            text-align: center;
+            width: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .common-phrases, .dictionary-section {
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phrase-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .phrase-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .phrase-btn:hover {
+            border-color: #7e0a98;
+            background: #fafafa;
+        }
+
+        .phrase-text {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .phrase-translation {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .dictionary-search {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .btn-search {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .btn-search:hover {
+            background-color: #229954;
+        }
+
+        .recent-signs-list {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .recent-sign {
+            flex-shrink: 0;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .recent-sign:hover {
+            border-color: #27ae60;
+            background: #f0f8f0;
+        }
+
+        .save-share-section {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-save {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background-color: #e67e22;
+        }
+
+        .btn-share {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-share:hover {
+            background-color: #2980b9;
+        }
+
+        .back-to-dashboard {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: #7e0a98;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .back-to-dashboard:hover {
+            background: #6a0d7a;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .input-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .language-selector {
+                min-width: auto;
+            }
+            
+            .input-actions {
+                flex-direction: column;
+            }
+            
+            .video-controls {
+                justify-content: center;
+            }
+            
+            .phrase-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .dictionary-search {
+                flex-direction: column;
+            }
+            
+            .save-share-section {
+                flex-direction: column;
+            }
+            
+            .back-to-dashboard {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                border-radius: 6px;
+                padding: 12px 20px;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }

@@ -1,0 +1,253 @@
+/* c:\Users\Crystal Kanana\Desktop\Sema na mimi\Sema-na-mimi\profile-settings.css */
+
+/* Inherit variables from landing.css if not already global */
+/* :root { ... } */
+
+body {
+    background-color: var(--light-alt, #f9eaff); /* Fallback if var not defined */
+}
+
+.profile-settings-page {
+    padding: 80px 20px 40px; /* Adjust top padding for fixed navbar */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.settings-container {
+    background-color: var(--white, #ffffff);
+    padding: 30px 40px;
+    border-radius: var(--border-radius, 12px);
+    box-shadow: var(--shadow, 0 4px 15px rgba(0,0,0,0.1));
+}
+
+.settings-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.settings-header h1 {
+    font-size: 2.2em;
+    color: var(--primary-dark, #4b007d);
+    margin-bottom: 10px;
+}
+
+.settings-header p {
+    font-size: 1.1em;
+    color: var(--dark, #333);
+    margin-bottom: 15px;
+}
+
+.back-to-dashboard-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.9em !important; /* Override .btn-small if needed */
+}
+
+/* Form Styling */
+#profile-settings-form .settings-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+#profile-settings-form legend {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary, #6a0dad);
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative; /* For password toggle */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--dark, #555);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+.form-group input[type="password"] {
+    padding-right: 45px; /* Space for toggle icon */
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary, #6a0dad);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2);
+}
+
+.form-group input[readonly] {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.form-group small {
+    display: block;
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 5px;
+}
+
+/* Profile Picture Area */
+.profile-picture-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-light, #8a2be2);
+    margin-bottom: 10px;
+}
+
+.profile-picture-area .btn {
+    font-size: 0.9em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Password Visibility Toggle */
+.toggle-password-visibility {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    font-size: 1.2em;
+    user-select: none;
+    padding-top: 10px; /* Adjust if label pushes it down */
+}
+.form-group label + .toggle-password-visibility { /* If label is present */
+    top: calc(50% + 12px); /* Adjust based on label height and input padding */
+}
+
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+    accent-color: var(--primary, #6a0dad);
+}
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: var(--dark, #555);
+}
+
+/* Account Actions */
+.btn-danger {
+    background-color: var(--red, #e74c3c);
+    color: white;
+    border: none;
+}
+.btn-danger:hover {
+    background-color: #c0392b; /* Darker red */
+}
+
+/* Form Actions */
+.form-actions {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.form-actions .btn-large {
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
+
+/* Message Area for feedback */
+.message-area {
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.message-area.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.message-area.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+input.error-input {
+    border-color: var(--red, #e74c3c) !important;
+    background-color: rgba(231, 76, 60, 0.05);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .settings-container {
+        padding: 20px;
+    }
+    .settings-header h1 {
+        font-size: 1.8em;
+    }
+    #profile-settings-form legend {
+        font-size: 1.3em;
+    }
+    .back-to-dashboard-btn {
+        position: static;
+        display: block;
+        margin: 15px auto 0;
+        width: fit-content;
+    }
+    .form-actions {
+        text-align: center;
+    }
+    .form-actions .btn-large {
+        width: 100%;
+    }
+}

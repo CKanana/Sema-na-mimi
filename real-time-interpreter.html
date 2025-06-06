@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time KSL Interpreter - Sema na Mimi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="landing.css" rel="stylesheet"> <!-- Base styles -->
+    <link href="real-time-interpreter.css" rel="stylesheet"> <!-- Page-specific styles -->
+</head>
+<body>
+    <!-- Navigation (Consistent with other pages) -->
+    <nav class="navbar">
+        <a href="landing.html" style="text-decoration: none; color: inherit;">
+            <div class="logo">
+                <span class="hand-icon">🖐️</span>
+                Sema na Mimi
+            </div>
+        </a>
+        <div class="nav-right">
+            <div class="language-toggle">
+                <button class="lang-option active" data-lang="en">EN</button>
+                <button class="lang-option" data-lang="sw">SW</button>
+            </div>
+            <div class="nav-buttons">
+                <a href="dashboard.html" class="btn btn-outline">Dashboard</a>
+                <a href="landing.html" class="btn btn-primary">Log Out</a> <!-- Example logout -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Real-Time Interpreter Page Content -->
+    <main class="interpreter-page">
+        <div class="interpreter-container">
+            <header class="interpreter-header">
+                <h1><i class="fas fa-video"></i> Real-Time KSL Interpreter</h1>
+                <p>Use your camera to translate KSL gestures into text instantly.</p>
+                <a href="dashboard.html" class="btn btn-outline btn-small back-to-dashboard-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </a>
+            </header>
+
+            <div class="interpreter-layout">
+                <!-- Camera Feed Section -->
+                <section class="camera-feed-section">
+                    <h2>Camera Feed</h2>
+                    <div class="camera-view-container">
+                        <video id="camera-feed" autoplay playsinline muted></video>
+                        <canvas id="hand-landmarks-canvas" class="hand-landmarks-overlay"></canvas>
+                        <div id="camera-placeholder" class="camera-placeholder-content">
+                            <i class="fas fa-camera-retro fa-3x"></i>
+                            <p>Camera feed will appear here.</p>
+                            <button id="request-camera-btn" class="btn btn-primary">
+                                <i class="fas fa-power-off"></i> Enable Camera
+                            </button>
+                        </div>
+                    </div>
+                    <div class="camera-controls">
+                        <button id="toggle-camera-btn" class="btn btn-outline" disabled>
+                            <i class="fas fa-video-slash"></i> Turn Off Camera
+                        </button>
+                         <p id="camera-status" class="status-text">Status: Camera Off</p>
+                    </div>
+                </section>
+
+                <!-- Detection Results Section -->
+                <section class="detection-results-section">
+                    <h2>Detection Results</h2>
+                    <div class="live-output">
+                        <p><strong>Live Text:</strong> <span id="live-recognized-text">---</span></p>
+                        <p><strong>Confidence:</strong> <span id="confidence-level">N/A</span></p>
+                    </div>
+                    <div class="sign-history">
+                        <h3>Sign History (Last 10):</h3>
+                        <ul id="sign-history-list">
+                            <li><em>No signs detected yet.</em></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Controls Section -->
+                <section class="interpreter-controls-section">
+                    <h2>Controls</h2>
+                    <div class="control-buttons">
+                        <button id="start-detection-btn" class="btn btn-success" disabled>
+                            <i class="fas fa-play-circle"></i> Start Detection
+                        </button>
+                        <button id="stop-detection-btn" class="btn btn-warning" disabled>
+                            <i class="fas fa-stop-circle"></i> Stop Detection
+                        </button>
+                        <button id="clear-results-btn" class="btn btn-secondary">
+                            <i class="fas fa-trash-alt"></i> Clear Results
+                        </button>
+                        <button id="save-session-btn" class="btn btn-info">
+                            <i class="fas fa-save"></i> Save Session (Demo)
+                        </button>
+                    </div>
+                     <p id="detection-status" class="status-text">Status: Detection Idle</p>
+                </section>
+
+                <!-- Feedback System Section -->
+                <section class="feedback-system-section">
+                    <h2>Feedback on Last Detection</h2>
+                    <div id="last-detection-feedback" class="feedback-area">
+                        <p><em>Waiting for first detection...</em></p>
+                        <!-- Example Structure (populated by JS):
+                        <p>Detected: <strong id="feedback-sign-text">Hello</strong></p>
+                        <button class="btn btn-success btn-small feedback-btn" data-feedback="correct"><i class="fas fa-check"></i> Correct</button>
+                        <button class="btn btn-danger btn-small feedback-btn" data-feedback="wrong"><i class="fas fa-times"></i> Wrong</button>
+                        <div class="alternative-suggestions">
+                            <p>Was it one of these? <a href="#">Habari</a>, <a href="#">Jambo</a></p>
+                        </div>
+                        -->
+                    </div>
+                </section>
+
+                <!-- Practice Mode Section -->
+                <section class="practice-mode-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Practice Mode</h2>
+                    <div class="practice-setup">
+                        <label for="sign-to-practice">Choose a sign to practice:</label>
+                        <select id="sign-to-practice" name="signToPractice">
+                            <option value="">-- Select Sign --</option>
+                            <option value="hello">Hello (Habari)</option>
+                            <option value="thank_you">Thank You (Asante)</option>
+                            <option value="please">Please (Tafadhali)</option>
+                            <option value="yes">Yes (Ndio)</option>
+                            <option value="no">No (Hapana)</option>
+                        </select>
+                        <button id="start-practice-btn" class="btn btn-primary">Start Practice</button>
+                    </div>
+                    <div id="practice-feedback-area" class="practice-feedback">
+                        <p><em>Practice a sign to get feedback.</em></p>
+                        <!-- Example: <p>Your "Hello": <strong>Good!</strong> (Accuracy: 85%)</p> -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Consistent with other pages) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Sema na Mimi</h3>
+                <p>Breaking communication barriers for deaf children and their families across Kenya.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="landing.html">Home</a></li>
+                    <li><a href="text-to-sign.html">Text to KSL</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="profile-settings.html">Settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">KSL Dictionary</a></li>
+                    <li><a href="landing.html#faq">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+             <div class="footer-column">
+                <h3>My Account</h3>
+                <ul class="footer-links">
+                    <li><a href="profile-settings.html">Profile Settings</a></li>
+                    <li><a href="#">Learning History</a></li>
+                    <li><a href="landing.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Sema na Mimi | Made with 💜 for the deaf community in Kenya</p>
+        </div>
+    </footer>
+
+    <script src="landing.js"></script> <!-- For shared functionalities like language toggle -->
+    <script src="real-time-interpreter.js"></script> <!-- For page-specific logic -->
+</body>
+</html>
